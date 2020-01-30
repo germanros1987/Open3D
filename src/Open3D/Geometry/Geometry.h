@@ -64,6 +64,7 @@ public:
         OrientedBoundingBox = 11,
         /// AxisAlignedBoundingBox
         AxisAlignedBoundingBox = 12,
+        PentaMesh = 13,
     };
 
 public:

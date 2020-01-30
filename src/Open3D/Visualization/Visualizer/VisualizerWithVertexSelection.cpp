@@ -124,7 +124,10 @@ bool VisualizerWithVertexSelection::AddGeometry(
             geometry_renderer_ptr_ =
                     std::make_shared<glsl::TetraMeshRenderer>();
             break;
-        case geometry::Geometry::GeometryType::Image:
+     	case geometry::Geometry::GeometryType::PentaMesh:
+	     geometry_renderer_ptr_ = nullptr;
+	    break;
+    	case geometry::Geometry::GeometryType::Image:
             geometry_renderer_ptr_ = std::make_shared<glsl::ImageRenderer>();
             break;
         case geometry::Geometry::GeometryType::MeshBase:
@@ -210,7 +213,8 @@ bool VisualizerWithVertexSelection::UpdateGeometry(
         case geometry::Geometry::GeometryType::MeshBase:
         case geometry::Geometry::GeometryType::TriangleMesh:
         case geometry::Geometry::GeometryType::HalfEdgeTriangleMesh:
-        case geometry::Geometry::GeometryType::TetraMesh: {
+        case geometry::Geometry::GeometryType::TetraMesh:
+	case geometry::Geometry::GeometryType::PentaMesh:	{
             auto mesh = std::static_pointer_cast<const geometry::MeshBase>(
                     geometry_ptr_);
             if (mesh->vertices_.size() !=
@@ -781,7 +785,8 @@ const std::vector<Eigen::Vector3d>
         case geometry::Geometry::GeometryType::MeshBase:
         case geometry::Geometry::GeometryType::TriangleMesh:
         case geometry::Geometry::GeometryType::HalfEdgeTriangleMesh:
-        case geometry::Geometry::GeometryType::TetraMesh: {
+	case geometry::Geometry::GeometryType::TetraMesh:
+	case geometry::Geometry::GeometryType::PentaMesh: {
             auto mesh = std::static_pointer_cast<const geometry::MeshBase>(
                     geometry);
             points = &mesh->vertices_;

@@ -36,6 +36,7 @@ namespace Eigen {
 /// Extending Eigen namespace by adding frequently used matrix type
 typedef Eigen::Matrix<double, 6, 6> Matrix6d;
 typedef Eigen::Matrix<double, 6, 1> Vector6d;
+typedef Eigen::Matrix<int, 5, 1> Vector5i;
 
 /// Use Eigen::DontAlign for matrices inside classes which are exposed in the
 /// Open3D headers https://github.com/intel-isl/Open3D/issues/653
